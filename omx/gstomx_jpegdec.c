@@ -61,16 +61,11 @@ type_base_init (gpointer g_class)
 
     element_class = GST_ELEMENT_CLASS (g_class);
 
-    {
-        GstElementDetails details;
-
-        details.longname = "OpenMAX IL JPEG image decoder";
-        details.klass = "Codec/Decoder/Image";
-        details.description = "Decodes image in JPEG format with OpenMAX IL";
-        details.author = "Texas Instrument";
-
-        gst_element_class_set_details (element_class, &details);
-    }
+    gst_element_class_set_details_simple (element_class,
+            "OpenMAX IL JPEG image decoder",
+            "Codec/Decoder/Image",
+            "Decodes image in JPEG format with OpenMAX IL",
+            "Texas Instruments");
 
     gst_element_class_add_pad_template (element_class,
             gst_static_pad_template_get (&src_template));

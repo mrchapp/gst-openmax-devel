@@ -61,16 +61,11 @@ type_base_init (gpointer g_class)
 
     element_class = GST_ELEMENT_CLASS (g_class);
 
-    {
-        GstElementDetails details;
-
-        details.longname = "OpenMAX IL JPEG image encoder";
-        details.klass = "Codec/Encoder/Image";
-        details.description = "Encodes image in JPEG format with OpenMAX IL";
-        details.author = "Felipe Contreras";
-
-        gst_element_class_set_details (element_class, &details);
-    }
+    gst_element_class_set_details_simple (element_class,
+            "OpenMAX IL JPEG image encoder",
+            "Codec/Encoder/Image",
+            "Encodes image in JPEG format with OpenMAX IL",
+            "Felipe Contreras");
 
     gst_element_class_add_pad_template (element_class,
         gst_static_pad_template_get (&src_template));

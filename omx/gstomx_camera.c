@@ -79,13 +79,6 @@
  * </refsect2>
  */
 
-static const GstElementDetails element_details =
-GST_ELEMENT_DETAILS ("Video OMX Camera Source",
-    "Source/Video",
-    "Reads frames from a OMX Camera Component",
-    "Rob Clark <rob@ti.com>");
-
-
 enum
 {
     ARG_0,
@@ -2878,7 +2871,11 @@ type_base_init (gpointer g_class)
 
     element_class = GST_ELEMENT_CLASS (g_class);
 
-    gst_element_class_set_details (element_class, &element_details);
+    gst_element_class_set_details_simple (element_class,
+            "Video OMX Camera Source",
+            "Source/Video",
+            "Reads frames from a OMX Camera Component",
+            "Rob Clark <rob@ti.com>");
 
     gst_element_class_add_pad_template (element_class,
         gst_static_pad_template_get (&src_template));
